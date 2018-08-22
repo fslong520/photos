@@ -416,3 +416,58 @@ ReactDOM.render(
 	<UserGist source="https://api.github.com/users/octocat/gists"/>,
 	document.getElementById('example9')
 );
+
+class HelloMessage extends Component {
+	constructor(props) {
+	  super(props);
+	  this.state = {value:'Hello Runoob!'};
+	}
+	handleChange(event){
+	  this.setState({value:event.target.value})
+	}
+	render() {
+	  var value=this.state.value;
+	  return (
+		<div>
+		  <input type='text' value={value} onChange={this.handleChange.bind(this)}/>
+		  <h4>{value}</h4>
+		</div>
+	  );
+	}
+  }
+ReactDOM.render(
+  <HelloMessage/>,
+  document.getElementById('example10')
+)
+class FlavorForm extends Component {
+  constructor(props) {
+	super(props);
+	this.state = { value:'coconut' };
+  }
+  handleChange(event){
+	this.setState({value:event.target.value});
+  }
+  handleSubmit(event){
+	alert('Your favorite flavor is:'+this.state.value);
+	event.preventDefault();
+  }
+  render() {
+	return (
+	  <form onSubmit={this.handleSubmit.bind(this)}>
+		<label>
+		  <select value={this.state.value} onChange={this.handleChange.bind(this)}>
+			<option value="gg">Google</option>
+			<option value="rn">Runoob</option>
+			<option value="tb">Taobao</option>
+			<option value="fb">Facebook</option>
+		  </select>
+		</label>
+		<input type="submit" value="提交" />
+	  </form>
+	);
+  }
+}
+ReactDOM.render(
+  <FlavorForm/>,
+  document.getElementById("example11")
+);
