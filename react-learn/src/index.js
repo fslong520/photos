@@ -2,6 +2,7 @@ import './index.css';
 import ReactDOM from 'react-dom';
 import  React, { Component } from 'react';
 import $ from 'jquery';
+
 export class Name extends Component {
 	render() {
 		return (
@@ -519,3 +520,90 @@ ReactDOM.render(
 	<Reservation />,
 	document.getElementById('example12')
 );
+
+
+class HelloMessage1 extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			value:'Hello Runoob'
+		  };
+	}
+	handleChange(event){
+		this.setState({value:'菜鸟教程'})
+	}
+	render() {
+		var value=this.state.value;
+		return (
+			<div>
+				<button onClick={this.handleChange.bind(this)}>点我</button>
+				<h4>{value}</h4>
+			</div>
+		);
+	}
+}
+ReactDOM.render(
+	<HelloMessage1/>,
+	document.getElementById('example13')
+)
+
+
+class Content1 extends Component {
+	
+	render() {
+		return (
+			<div>
+				<button onClick={this.props.updateStateProp}>
+					点我
+				</button>
+				<h4>{this.props.myDataProp}</h4>
+			</div>
+			
+		);
+	}
+}
+class HelloMessage2 extends Component {
+	constructor(props) {
+		super(props);
+		this.state = { value:'Hello Runoob!' };
+	}
+	handleChange(event){
+		this.setState({value:'哈哈哈'})
+	}
+	render() {
+		var value=this.state.value;
+		return (
+			<div>
+				<Content1 myDataProp={value}
+					updateStateProp={this.handleChange.bind(this)}></Content1>
+			</div>
+		);
+	}
+}
+
+ReactDOM.render(
+	<HelloMessage2/>,
+	document.getElementById('example14')
+)
+
+class MyComponent extends Component {
+	handleClick(){
+		this.refs.myInput.focus();
+	}
+	render() {
+		return (
+			<div>
+				<input type="text" ref="myInput"/>
+				<input 
+					type="button"
+					value="点我输入框获取焦点"
+					onClick={this.handleClick.bind(this)}
+				/>
+			</div>			
+		);
+	}
+}
+ReactDOM.render(
+	<MyComponent />,
+	document.getElementById('example15')
+)
