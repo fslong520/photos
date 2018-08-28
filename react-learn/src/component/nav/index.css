@@ -1,6 +1,7 @@
 .nav{
     margin:30px;
     padding:0;
+    width:200px;
 }
 .nav li{
     border-left: 5px solid sandybrown;

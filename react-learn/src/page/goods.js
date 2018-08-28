@@ -1,13 +1,33 @@
-import React from 'react';
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+import * as actions from "../action/goods";
+
+const GOODS=[{
+    name:'iPhone 7',
+    price:'6,888',
+    amount:37
+  },{
+    name:'iPad',
+    price:'3488',
+    amount:82
+  },{
+    name:'MacBook Pro',
+    price:'11,888',
+    amount:15
+  }]
+
 class Goods extends Component {
+    componentDidMount(){
+        let dispatch=this.props.dispatch;
+        dispatch(actions.getGoods(GOODS));
+    }
     render() {
         return (
             <ul className="goods">
                 {
-                    this.props.list.map((ele,idx)=>(
+                    this.props.goods.map((ele,idx)=>(
                         <li key={idx} style={{marginBottom:20,listStyle:'none'}}>
-                            <span>{ele.name}</span>
+                            <span>{ele.name} </span>
                             <span>￥ {ele.price}</span>
                             <span>剩余 {ele.amount}</span>
                         </li>
@@ -17,5 +37,8 @@ class Goods extends Component {
         );
     }
 }
-
-export default Goods;
+const mapStateToProps=(state,ownProps)=>({
+    goods:state.goods.data
+})
+//export default Goods;
+export default connect(mapStateToProps)(Goods);
