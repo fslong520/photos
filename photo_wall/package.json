@@ -1,0 +1,32 @@
+{
+  "name": "photo-wall",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "d3": "^5.7.0",
+    "d3-ease": "^1.0.5",
+    "d3-interpolate": "^1.3.2",
+    "dom-helpers": "^3.3.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "hana-ui": "^1.1.8",
+    "immutability": "^1.0.2",
+    "immutability-helper": "^2.7.1",
+    "jquery": "^3.3.1",
+    "node-sass": "^4.9.3",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-lifecycles-compat": "^3.0.4",
+    "react-scripts": "^1.1.5",
+    "react-transition-group": "^2.4.0",
+    "sass-loader": "^7.1.0",
+    "webpack": "^4.17.1",
+    "webpack-inline-manifest-plugin": "^4.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
